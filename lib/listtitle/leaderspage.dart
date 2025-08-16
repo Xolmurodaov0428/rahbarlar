@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rahbarlar/homepage.dart';
-import 'package:rahbarlar/listtitle/appbarpage.dart';
 import 'fakul_aniqfanlar.dart';
+import 'fakul_harbiy.dart';
 import 'fakul_jismoniy.dart';
 import 'fakul_maktabgacha.dart';
 import 'fakul_pedagogika.dart';
@@ -123,7 +123,7 @@ class _LeaderPageState extends State<LeaderPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => JismoniyPage()),
                       );
@@ -150,7 +150,7 @@ class _LeaderPageState extends State<LeaderPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => MaktabgachaPage()),
                       );
@@ -177,7 +177,7 @@ class _LeaderPageState extends State<LeaderPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => PedagogikaPage()),
                       );
@@ -204,9 +204,9 @@ class _LeaderPageState extends State<LeaderPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => LeaderPage()),
+                        MaterialPageRoute(builder: (context) => HarbiyPage()),
                       );
                     },
                     child: Text(
