@@ -9,6 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _isHidden = true;
 
   final TextEditingController _loginController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,7 +33,9 @@ class _LoginPageState extends State<LoginPage> {
                 height: 250,
                 width: 6000,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurpleAccent,
+                  gradient: LinearGradient(
+                    colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+                  ),
                   borderRadius: BorderRadius.circular(40),
                 ),
                 child: Padding(
@@ -84,6 +87,16 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: "Parol",
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _isHidden ? Icons.visibility : Icons.visibility_off,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _isHidden = !_isHidden;
+                      });
+                    },
+                  ),
                 ),
               ),
               SizedBox(height: 20),
@@ -119,6 +132,22 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: Text("Kirish", style: TextStyle(color: Colors.white)),
                 ),
+              ),
+
+              // Akkaunt qo'shish
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Akkauntingiz yoqmi?"),
+                  TextButton(
+                    child: Text(
+                      "Ro'yxatdan o'tish",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+
+                    onPressed: () {},
+                  ),
+                ],
               ),
             ],
           ),

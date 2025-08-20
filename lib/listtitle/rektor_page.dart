@@ -60,15 +60,7 @@ class RektorPage extends StatelessWidget {
                             ),
                             SizedBox(height: 6),
                             Text(
-                              "I"
-                                  ""
-                                  ""
-                                  ""
-                                  ""
-                                  ""
-                                  ""
-                                  ""
-                                  "lmiy darajasi: PhD, dotsent",
+                              "Ilmiy darajasi: PhD, dotsent",
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                             ),

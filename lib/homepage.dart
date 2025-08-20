@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rahbarlar/account.dart';
 import 'package:rahbarlar/listtitle/prorektor_page.dart';
 import 'listtitle/leaderspage.dart';
 import 'listtitle/rektor_page.dart';
@@ -67,6 +68,12 @@ class _HomePageState extends State<HomePage> {
             ListTile(
               leading: Icon(Icons.account_circle_sharp),
               title: Text("Akkaunt"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AccountPage()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings_sharp),
