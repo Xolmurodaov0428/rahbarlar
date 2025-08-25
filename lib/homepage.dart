@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rahbarlar/account.dart';
 import 'package:rahbarlar/listtitle/prorektor_page.dart';
+import 'package:rahbarlar/services/local_storage.dart';
 import 'listtitle/leaderspage.dart';
 import 'listtitle/rektor_page.dart';
 
@@ -57,9 +58,25 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(width: 20),
                   Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text("Sh Xolmurodov"), Text("+998904131263")],
+                    child: FutureBuilder<Map<String, dynamic>>(
+                      future: LocalStorage.getUserData(), // async chaqirish
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return Center(child: CircularProgressIndicator());
+                        }
+                        if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                          return Center(child: Text("Ma'lumot topilmadi"));
+                        }
+                        final userData = snapshot.data!;
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("${userData["ism"]} "),
+                            Text("${userData["familya"]}"),
+                            //Text("Email: ${userData["email"]}"),
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ],

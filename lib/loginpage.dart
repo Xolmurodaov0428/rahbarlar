@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rahbarlar/homepage.dart';
+import 'package:rahbarlar/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -142,10 +143,14 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     child: Text(
                       "Ro'yxatdan o'tish",
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.blue,),
                     ),
-
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignupPage())
+                      );
+                    },
                   ),
                 ],
               ),
