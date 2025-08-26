@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rahbarlar/homepage.dart';
+import 'package:rahbarlar/services/local_storage.dart';
 import 'package:rahbarlar/signup_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,12 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _loginController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  final String _savelogin = "admin";
-  final String _saveparol = "12345";
-
-  final String _login = "admin";
-  final String _parol = "12345";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
               // Xush kelibsiz
               Container(
                 height: 250,
-                width: 6000,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
@@ -61,11 +56,6 @@ class _LoginPageState extends State<LoginPage> {
 
               // Login
               TextField(
-                onTap: () {
-                  if (_savelogin != null && _savelogin!.isNotEmpty) {
-                    _loginController.text = _savelogin!;
-                  }
-                },
                 controller: _loginController,
                 decoration: InputDecoration(
                   labelText: "Login",
@@ -77,13 +67,8 @@ class _LoginPageState extends State<LoginPage> {
 
               // Parol
               TextField(
-                onTap: () {
-                  if (_saveparol != null && _saveparol!.isNotEmpty) {
-                    _passwordController.text = _saveparol!;
-                  }
-                },
                 controller: _passwordController,
-
+                obscureText: _isHidden,
                 decoration: InputDecoration(
                   labelText: "Parol",
                   border: OutlineInputBorder(),
@@ -105,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
               // Kirish
               SizedBox(
                 height: 50,
-                width: 5000,
+                width: double.infinity,
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
@@ -117,17 +102,27 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  onPressed: () {
-                    if (_loginController.text == _login &&
-                        _passwordController.text == _parol) {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      );
+                  onPressed: () async {
+                    final userData = await LocalStorage.getUserData();
+
+                    if (userData.isNotEmpty) {
+                      final savedLogin = userData["email"];
+                      final savedPassword = userData["parol"];
+
+                      if (_loginController.text == savedLogin &&
+                          _passwordController.text == savedPassword) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Center(child: Text('Login yoki parol xato'))),
+                        );
+                      }
                     } else {
-                      // Login yoki parol xato bo‘lsa
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Login yoki parol xato')),
+                        SnackBar(content: Center(child: Text('Foydalanuvchi topilmadi'))),
                       );
                     }
                   },
@@ -139,16 +134,16 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Akkauntingiz yoqmi?"),
+                  Text("Akkauntingiz yo'qmi?"),
                   TextButton(
                     child: Text(
                       "Ro'yxatdan o'tish",
-                      style: TextStyle(color: Colors.blue,),
+                      style: TextStyle(color: Colors.blue),
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignupPage())
+                        context,
+                        MaterialPageRoute(builder: (context) => SignupPage()),
                       );
                     },
                   ),

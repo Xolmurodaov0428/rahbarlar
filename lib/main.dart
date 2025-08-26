@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rahbarlar/account.dart';
 import 'package:rahbarlar/loginpage.dart';
 import 'package:rahbarlar/welcomepage.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       home:
       //HomePage(),
       WelcomePage(),
+      // AccountPage(),
     );
   }
 }
