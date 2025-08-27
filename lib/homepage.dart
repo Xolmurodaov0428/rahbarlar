@@ -14,7 +14,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<IconData> _icon = [Icons.school, Icons.school, Icons.people_alt];
+  final List<IconData> _icon = [
+    Icons.school,
+    Icons.school,
+    Icons.people_alt
+  ];
 
   final List<String> _child = [
     "Rektor",
@@ -110,118 +114,129 @@ class _HomePageState extends State<HomePage> {
 
       // Home
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              Container(
-                decoration: MyShadowBoxDecoration.defaultShadow(),
-                height: 100,
-                width: 5000,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+        child: Container(width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  decoration: MyShadowBoxDecoration.defaultShadow(),
+                  height: 170,
+                  width: 5000,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.white,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                       ),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RektorPage()),
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(_icon[0], color: Colors.black, size: 40),
-                      SizedBox(width: 20),
-                      Text(
-                        _child[0],
-                        style: TextStyle(fontSize: 20, color: Colors.black),
-                      ),
-                    ],
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => RektorPage()),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(_icon[0], color: Colors.black, size: 60),
+                        SizedBox(width: 20),
+                        Text(
+                          _child[0],
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                decoration: MyShadowBoxDecoration.defaultShadow(),
-                height: 100,
-                width: 5000,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                // SizedBox(height: 20),
+                Container(
+                  decoration: MyShadowBoxDecoration.defaultShadow(),
+                  height: 170,
+                  width: 5000,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.white,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                       ),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ProrektorPage()),
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(_icon[1], color: Colors.black, size: 40),
-                      SizedBox(width: 20),
-                      Text(
-                        _child[1],
-                        style: TextStyle(fontSize: 20, color: Colors.black),
-                      ),
-                    ],
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProrektorPage()),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(_icon[1], color: Colors.black, size: 60),
+                        SizedBox(width: 20),
+                        Text(
+                          _child[1],
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              Container(
-                decoration: MyShadowBoxDecoration.defaultShadow(),
-                height: 100,
-                width: 5000,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white,
-                    ),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+                // SizedBox(height: 20),
+                Container(
+                  decoration: MyShadowBoxDecoration.defaultShadow(),
+                  height: 170,
+                  width: 5000,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.white,
+                      ),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                       ),
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LeaderPage()),
-                    );
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(_icon[2], color: Colors.black, size: 40),
-                      SizedBox(width: 20),
-                      Text(
-                        _child[2],
-                        style: TextStyle(fontSize: 20, color: Colors.black),
-                      ),
-                    ],
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LeaderPage()),
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(_icon[2], color: Colors.black, size: 60),
+                        SizedBox(width: 20),
+                        Text(
+                          _child[2],
+                          style: TextStyle(fontSize: 35, color: Colors.black),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
