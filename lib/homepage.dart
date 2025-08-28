@@ -116,12 +116,13 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Container(width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),),
+          // decoration: BoxDecoration(
+          //   gradient: LinearGradient(
+          //     colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+          //     begin: Alignment.topLeft,
+          //     end: Alignment.bottomRight,
+          //   ),
+          // 1),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
